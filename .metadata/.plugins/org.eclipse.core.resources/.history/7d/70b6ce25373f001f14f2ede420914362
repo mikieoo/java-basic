@@ -1,0 +1,34 @@
+package chapter1.practice;
+
+import java.util.Scanner;
+
+public class Practice1 {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int[] numbers = new int[0];
+		
+		int cnt = 1;
+		
+		while(true) {
+			System.out.print("정수 : ");
+			int num = sc.nextInt();
+			int[] newNumbers = new int[cnt];
+			if(num < 0) {
+				for(int i=0; i<newNumbers.length; i++) {
+					System.out.print(newNumbers[i]);
+				}
+				break;
+			}
+			numbers = newNumbers;
+			cnt++;
+			newNumbers[cnt-1] = num;
+		}
+		
+		sc.close();
+		
+	}
+
+}

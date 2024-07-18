@@ -1,0 +1,94 @@
+package chapter3;
+
+import java.util.*;
+
+public class Package2 {
+
+	public static void main(String[] args) {
+
+		// Collection Framework : Java 에서 데이터 구조에 대한 표준화된 기법을 제공
+		
+		// List: 데이터를 저장할 때 중복을 허용하고 순서가 존재하는 
+		// Collection Framework 에서 데이터 타입을 지정할 땐 제네릭을 사용하여 지정
+		
+		// ArrayList 구현 클래스 : 인덱스를 이용한 검색
+		List<Integer> list = new ArrayList<>();		
+		
+		// LinkedList 구현 클래스 : 추가, 삭제가 빠름
+		list = new LinkedList<>();
+		
+		// add() : List 에 요소 추가
+		// 추가할 요소는 제네릭으로 지정한 데이터 타입의 요소
+		
+		list.add(99);
+		System.out.println(list);
+		
+		// 데이터 타입 변수로 반환값을 받을 땐 null 이 올 수 있음을 주의
+		int number = list.get(0);
+		System.out.println(number);
+		
+		
+		// set() : List 의 특정 인덱스 요소를 변경
+		
+		List<String> stringList = new ArrayList<>();
+		stringList.add("apple");
+		stringList.add("banana");
+		System.out.println(stringList);
+		
+		stringList.set(0, "grape");
+		
+		stringList.remove("apple");
+		System.out.println(stringList);
+		
+		// Set : 데이터를 저장할 때 중복을 허용하지 않고 순서가 존재하지 않는 데이터 구조 (집합)
+		Set<String> set;
+		
+		// HashSet 구현 클래스 : 검색이 빠름
+		set = new HashSet<>();
+		
+		// TreeSet 구현 클래스 : 요소를 정렬해서 추가
+		set = new TreeSet<>();
+		
+		set.add("banana");
+		System.out.println(set);
+		set.add("apple");
+		System.out.println(set);
+		
+		// put() : Map 에 키와 값의 쌍을 추가
+		// 만약 동일한 키가 존재하면 원래 값을 덮어씌움
+		HashMap<String, String> map = new HashMap<>();
+		map.put("banana", "바나나");
+		map.put("banana", "노란색");
+		System.out.println(map);
+		
+		// get() : Map 에서 특정 키를 가지는 요소를 반환
+		System.out.println(map.get("banana"));
+		
+		// containsKey() :  Map 특정 키가 존재하는지 확인
+		System.out.println(map.containsKey("banana"));
+		
+		class Human {
+			String name;
+			String address;
+			int age;
+		}
+		
+		Human human1 = new Human();
+		human1.name = "홍길동";
+		human1.address = "부산광역시";
+		human1.age = 20;
+		
+		Map<String, Object> human2 = new HashMap<>();
+		human2.put("name", "홍길동");
+		human2.put("address", "부산광역시");
+		human2.put("age", 20);
+		
+		// 1. 문제점 : 사용 혹은 추가 작업에 실수 가능성
+		human2.get("name");
+		// 2. 문제점 : 타입의 안정성의 문제
+		int age = (int)human2.get("age");
+		// 3. 문제점 : 데이터 무결성의 문제
+		System.out.println(age);
+	}
+
+}
